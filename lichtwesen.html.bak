@@ -358,8 +358,6 @@
   color: white;
   text-decoration: none;
 }
-  </style>
-<style>
 html {
   scroll-behavior: smooth;
 }
@@ -370,6 +368,11 @@ html {
   <a href="#services">Angebote</a>
   <a href="#preise">Preise</a>
   <a href="#contact">Kontakt</a>
+   <a href="https://wa.me/4915739643278?text=Hallo%20ich%20würde%20gern%20ein%20Erstgespräch%20mit%20dir%20vereinbaren"
+     target="_blank">
+    💬 Whatsapp
+  </a>
+
 </div><!-- HERO --><div class="hero">
   <div class="hero-content">
     <h1>Lichtwesen Doula</h1>
@@ -377,7 +380,8 @@ html {
     <p>Ich begleite dich einfühlsam durch Schwangerschaft, Geburt und Wochenbett, damit du dich sicher, gestärkt und verstanden fühlst.</p>
     <a class="btn" href="#contact">Erstgespräch</a>
   </div>
-</div><!-- ABOUT --><section id="about">
+</div>
+<!-- ABOUT --><section id="about">
   <h2>Über mich</h2>
   <p>
     Mein Name ist Leonie. Ich bin Mama eines kleinen Wirbelwinds und lebe mit meiner Familie in Schweinfurt. 
@@ -700,6 +704,7 @@ html {
 
 </form>
 </section>
+
 <script>
   const track = document.getElementById("storyTrack");
 
@@ -710,6 +715,49 @@ html {
       behavior: "smooth"
     });
   }
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("open");
+}
+
+/* 🔥 AUTO BUILD NAV FROM SECTIONS */
+const navMenu = document.getElementById("navMenu");
+const sections = document.querySelectorAll("section[id]");
+
+sections.forEach(section => {
+  const id = section.id;
+
+  // Titel holen (h2 oder fallback)
+  let title = section.querySelector("h2")?.innerText || id;
+
+  const link = document.createElement("a");
+  link.href = "#" + id;
+  link.innerText = title;
+
+  navMenu.appendChild(link);
+});
+
+/* 🔥 ACTIVE SECTION HIGHLIGHT */
+const navLinks = document.querySelectorAll(".nav-menu a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    const height = section.offsetHeight;
+
+    if (scrollY >= top && scrollY < top + height) {
+      current = section.id;
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
 </script>
 </body>
 </html>
