@@ -88,23 +88,6 @@
     .step{background:#fff;padding:18px;border-radius:12px;box-shadow:var(--shadow);}
 
     .cta{background:var(--sand);text-align:center;padding:70px 20px;border-radius:20px;}
-
-    .whatsapp{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      width:60px;
-      height:60px;
-      background:#25D366;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      color:#fff;
-      box-shadow:var(--shadow);
-    }
-
     input,textarea{
       width:100%;
       padding:12px;
@@ -230,20 +213,6 @@
   font-size: 12px;
   color: #7a6a60;
   text-align: center;
-}
-.floating-footer {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 10px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  z-index: 9999;
 }
 
 .ff-btn {
@@ -667,7 +636,7 @@ html {
   </div>
 
   <div class="trust-note">
-    ✨ Mein Ziel ist nicht nur eine gute Geburt – sondern dass du dich sicher, gesehen und getragen fühlst.
+    <p>✨ Mein Ziel ist nicht nur eine gute Geburt – sondern dass du dich sicher, gesehen und getragen fühlst.
   </div>
 
 </section>
@@ -678,6 +647,26 @@ html {
   <a class="btn" href="#contact">Kontakt aufnehmen</a>
 </section><!-- CONTACT --><section id="contact">
   <h2>Kontakt</h2>
+<div class="floating-footer">
+
+  <a class="ff-btn primary"  href="https://wa.me/4915739643278?text=Hallo%20ich%20würde%20gern%20ein%20Erstgespräch%20mit%20dir%20vereinbaren"
+     target="_blank">
+    💬 Kontakt
+  </a>
+
+  <a class="ff-btn secondary" 
+     href="https://chat.whatsapp.com/CHQKg6S6I8DKIA5dB7PADB" 
+     target="_blank">
+    🌿 Community
+  </a>
+
+  <a class="ff-btn tertiary" 
+     href="https://t.me/lichtwesendoula" 
+     target="_blank">
+    ✨ Telegram
+  </a>
+
+</div>
 <form action="https://formspree.io/f/xyklyzwg" method="POST" class="contact-form">
 
   <h3>Erzähl mir ein bisschen von dir</h3>
@@ -711,27 +700,6 @@ html {
 
 </form>
 </section>
-
-<div class="floating-footer">
-
-  <a class="ff-btn primary"  href="https://wa.me/4915739643278?text=Hallo%20ich%20würde%20gern%20ein%20Erstgespräch%20mit%20dir%20vereinbaren"
-     target="_blank">
-    💬 Kontakt
-  </a>
-
-  <a class="ff-btn secondary" 
-     href="https://chat.whatsapp.com/CHQKg6S6I8DKIA5dB7PADB" 
-     target="_blank">
-    🌿 Community
-  </a>
-
-  <a class="ff-btn tertiary" 
-     href="https://t.me/lichtwesendoula" 
-     target="_blank">
-    ✨ Telegram
-  </a>
-
-</div>
 <script>
   const track = document.getElementById("storyTrack");
 
