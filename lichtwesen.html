@@ -404,6 +404,70 @@
   color: white;
   text-decoration: none;
 }
+.review-slider {
+  padding: 90px 20px;
+  text-align: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slide-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  text-align: left;
+}
+
+.slide-content h3 {
+  margin-bottom: 15px;
+  color: #4f4038;
+}
+
+.slide-content p {
+  color: #5f5147;
+  line-height: 1.7;
+}
+
+.slide-content span {
+  display: block;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #7a6a60;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.slider-btn.left { left: 10px; }
+.slider-btn.right { right: 10px; }
 html {
   scroll-behavior: smooth;
 }
@@ -744,6 +808,72 @@ html {
   </a>
 
 </section>
+<section id="erfahrungen" class="review-slider">
+
+  <h2>Erfahrungsberichte</h2>
+
+  <p class="slider-intro">
+    Echte Begleitungen – anonymisiert und aus Respekt vor der Privatsphäre.
+  </p>
+
+  <div class="slider-wrapper">
+
+    <button class="slider-btn left" onclick="moveSlide(-1)">‹</button>
+
+    <div class="slider-track" id="sliderTrack">
+
+      <div class="slide">
+        <div class="slide-content">
+          <h3>„Ich hatte große Angst vor der Geburt“</h3>
+          <p>
+            Nach einer schwierigen ersten Erfahrung war meine Schwangerschaft von Unsicherheit geprägt.
+            Durch die Begleitung habe ich gelernt, meinem Körper wieder zu vertrauen.
+            Während der Geburt war sie ruhig an meiner Seite – und ich konnte zum ersten Mal loslassen.
+          </p>
+          <span>– Mama nach 1. Geburt</span>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-content">
+          <h3>„Ich habe mich nicht allein gefühlt“</h3>
+          <p>
+            Besonders im Wochenbett war ihre Unterstützung unbezahlbar.
+            Sie war da, wenn ich geweint habe, wenn ich unsicher war und wenn ich einfach jemanden brauchte.
+          </p>
+          <span>– frisch gebackene Mama</span>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-content">
+          <h3>„Die Geburt war intensiv – aber nicht einsam“</h3>
+          <p>
+            Ich erinnere mich nicht an Schmerz, sondern an Sicherheit.
+            Ihre ruhige Präsenz hat mir geholfen, durch jede Welle zu gehen.
+          </p>
+          <span>– Geburt im Krankenhaus</span>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="slide-content">
+          <h3>„Ich hätte das ohne sie nicht geschafft“</h3>
+          <p>
+            Es war mehr als Unterstützung – es war Halt.
+            Jemand, der mich wirklich gesehen hat, ohne zu urteilen.
+          </p>
+          <span>– Erstgebärende</span>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="slider-btn right" onclick="moveSlide(1)">›</button>
+
+  </div>
+
+</section>
 <section class="trust">
 
   <h2>Du bist hier sicher aufgehoben</h2>
@@ -842,6 +972,19 @@ html {
 </section>
 
 <script>
+let currentSlide = 0;
+
+function moveSlide(direction) {
+  const track = document.getElementById("sliderTrack");
+  const slides = document.querySelectorAll(".slide");
+
+  currentSlide += direction;
+
+  if (currentSlide < 0) currentSlide = slides.length - 1;
+  if (currentSlide >= slides.length) currentSlide = 0;
+
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
   const track = document.getElementById("storyTrack");
 
   function scrollStory(direction) {
